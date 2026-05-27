@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-HUNT: Boardgame Văn Hóa Việt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="/images/logo.png" alt="S-Hunt Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#trang-chu" class="nav-link active">Trang chủ</a></li>
+                    <li><a href="#gioi-thieu" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="#bo-san-pham" class="nav-link">Bộ sản phẩm</a></li>
+                    <li><a href="#tai-sao-chon" class="nav-link">Tại sao nên chọn</a></li>
+                    <li><a href="#lien-he" class="nav-link">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="trang-chu">
+        <div class="hero-wrapper">
+            
+            <img class="hero-main-img" src="/images/hero-logo.png" alt="S-HUNT Banner">
+            
+            <div class="hero-text-overlay">
+                <h1>S-HUNT: BOARDGAME VĂN HÓA VIỆT</h1>
+                <p>Trò chơi di sản, giúp người trẻ khám phá văn hóa và ẩm thực Việt Nam theo cách gần gũi, mới mẻ.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gioi-thieu">
+        <div class="container about-wrapper">
+            <div class="about-image">
+                <img src="/images/logo.png" alt="S-Hunt">
+            </div>
+            <div class="about-info">
+                <h2>Thông tin chung</h2>
+                <p><strong>S-HUNT</strong> là một sản phẩm về trò chơi board game đối kháng giáo dục - giải trí trong đó
+                    người chơi sẽ sử dụng các bộ thẻ bài chứa thông tin về các di sản văn hóa Việt Nam và thông qua các
+                    câu hỏi về đặc điểm nhận diện, icon và từ khóa, người chơi sẽ phải suy luận đoán được di sản hoặc
+                    món ăn mà đối phương đang nắm giữ.</p>
+                <a href="#lien-he" class="btn-contact">Liên hệ với chúng tôi</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="bo-san-pham">
+        <div class="container">
+            <h2 class="section-title">Bộ sản phẩm</h2>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="/images/s-mlem.jpg" alt="S-MLEM">
+                        <a href="/assets/san-pham.html?id=mlem" class="btn-buy-now-link">MUA NGAY</a>
+                    </div>
+                    <div class="product-name">S-MLEM</div>
+                    <div class="product-price">299.000đ</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="/images/s-check.jpg" alt="S-CHECK">
+                        <a href="/assets/san-pham.html?id=check" class="btn-buy-now-link">MUA NGAY</a>
+                    </div>
+                    <div class="product-name">S-CHECK</div>
+                    <div class="product-price">299.000đ</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="tai-sao-chon">
+        <div class="container">
+            <h2 class="section-title">Tại sao nên chọn sản phẩm này?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img class="feature-icon" src="/images/icon-maze1.png" alt="Dễ tiếp cận">
+                    <h3>Dễ tiếp cận</h3>
+                    <p>Dễ chơi, phù hợp với nhiều độ tuổi và đối tượng khác nhau, giúp người tham gia nhanh chóng hòa
+                        nhập mà không cần hướng dẫn phức tạp.</p>
+                </div>
+                <div class="feature-card">
+                    <img class="feature-icon" src="/images/icon-map.png" alt="Linh hoạt">
+                    <h3>Linh hoạt, dễ ứng dụng</h3>
+                    <p>Sản phẩm có thể được ứng dụng trong nhiều bối cảnh như lớp học, workshop văn hóa, hoạt động nhóm
+                        hoặc giải trí cá nhân.</p>
+                </div>
+                <div class="feature-card">
+                    <img class="feature-icon" src="/images/icon-sea.png" alt="Giáo dục">
+                    <h3>Giáo dục</h3>
+                    <p>Sản phẩm không chỉ cung cấp thông tin giúp người chơi tiếp cận kiến thức văn hóa di sản một cách
+                        tự nhiên, thú vị và dễ ghi nhớ mà còn khuyến khích người chơi tìm hiểu, khám phá và hình thành
+                        sự quan tâm đối với các giá trị văn hóa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lien-he">
+        <div class="container">
+            <h2>Đăng ký ngay!</h2>
+            <p class="sub-title">Đăng ký để nhận thông tin cập nhật mới nhất và ưu đãi độc quyền từ chúng tôi.</p>
+            <form class="form-inline" id="registerForm">
+                <input type="text" id="username" placeholder="Họ và tên" required>
+                <input type="email" id="useremail" placeholder="Email" required>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+
+            <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+
+            <div class="footer-info">
+                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm,
+                    Hà Nội, Việt Nam </p>
+                <p><strong>Liên hệ:</strong> 0972410248</p>
+            </div>
+
+            <div class="footer-socials">
+                <a href="#" class="social-circle" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-circle" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-circle" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2026 Bản quyền thuộc về nhóm 4.
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - S-HUNT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Hộp thoại thông báo thành công */
+        .success-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-modal-card {
+            background-color: white;
+            padding: 35px 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+            animation: scaleUp 0.3s ease;
+        }
+
+        .success-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .success-modal-card h4 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .success-modal-card p {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .btn-success-close {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 35px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-success-close:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="/images/logo.png" alt="S-Hunt Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#trang-chu">Trang chủ</a></li>
+                    <li><a href="../index.html#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="../index.html#bo-san-pham" class="active">Bộ sản phẩm</a></li>
+                    <li><a href="../index.html#tai-sao-chon">Tại sao nên chọn</a></li>
+                    <li><a href="../index.html#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="bo-san-pham" style="padding-top: 140px; padding-bottom: 250px;">
+        <div class="container">
+            
+            <a href="../index.html#bo-san-pham" class="btn-go-back">&larr; Trở về</a>
+            
+            <div class="detail-wrapper">
+                <div class="detail-image">
+                    <img id="detailImg" src="" alt="Hình ảnh sản phẩm">
+                </div>
+                <div class="detail-info">
+                    <h3 id="detailName"></h3>
+                    <div class="detail-price" id="detailPrice"></div>
+                    <p class="detail-desc" id="detailDesc"></p>
+                    
+                    <div class="quantity-selector">
+                        <span>Số lượng</span>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(-1)">-</button>
+                            <input type="text" id="quantityInput" value="1" readonly>
+                            <button onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-checkout-trigger" onclick="openOrderModal()">Đặt hàng</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="order-modal-overlay" id="orderModal">
+        <div class="order-modal-card">
+            <h3>Thông tin giao hàng</h3>
+            <form id="orderForm" onsubmit="handleOrderSubmit(event)">
+                <div class="form-field">
+                    <label>Địa chỉ nhận hàng *</label>
+                    <input type="text" id="orderAddress" placeholder="Nhập địa chỉ cụ thể">
+                    <span class="error-msg" id="addressError">* Vui lòng không để trống</span>
+                </div>
+                <div class="form-field">
+                    <label>Số điện thoại *</label>
+                    <input type="tel" id="orderPhone" placeholder="Nhập số điện thoại liên hệ">
+                    <span class="error-msg" id="phoneError">* Vui lòng không để trống</span>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeOrderModal()">Hủy</button>
+                    <button type="submit" class="btn-confirm">Đặt hàng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal-card">
+            <div class="success-icon-box">
+                <i class="fas fa-check"></i>
+            </div>
+            <h4>Đặt hàng thành công!</h4>
+            <p>Cảm ơn bạn đã lựa chọn sản phẩm của S-HUNT. Chúng tôi sẽ liên hệ lại với bạn để xác nhận đơn hàng trong thời gian sớm nhất.</p>
+            <button class="btn-success-close" onclick="closeSuccessModal()">Đóng</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            
+            <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+            
+            <div class="footer-info">
+                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm, Hanoi, Vietnam</p>
+                <p><strong>Liên hệ:</strong> 0972410248</p>
+            </div>
+
+            <div class="footer-socials">
+                <a href="#" class="social-circle" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-circle" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-circle" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2026 Bản quyền thuộc về nhóm 4.
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const productData = {
+            mlem: {
+                name: "S-MLEM",
+                price: "299.000đ",
+                img: "/images/s-mlem.jpg",
+                highlightText: "Bản Đồ Mật Mã (02 Bảng ký hiệu):",
+                desc: `S-Mlem khai thác tối đa niềm đam mê ẩm thực của đại chúng. Nhờ việc bóc tách các món ăn quen thuộc, trò chơi giúp người chơi hiểu và trân trọng sự đa dạng, tinh tế của văn hóa ẩm thực ba miền Việt Nam.
+                  - Thành phần:
+                 1. Bản Đồ Mật Mã (02 Bảng ký hiệu): Bảng tra cứu giải nghĩa hệ thống icon ẩm thực  
+                 2. Khay Lưu Trữ Di Sản (02 Bảng gỗ): Gồm 2 bảng gỗ cùng 24 thẻ ảnh đại diện cho các món ăn 3 miền, phía dưới tích hợp icon về hình thức, vùng miền và nguyên liệu chính. 
+                 3. Hồ Sơ Mật (02 Bộ thẻ vuông & 24 Thẻ kiến thức): Bộ thẻ cung cấp thông tin về cách chế biến, dụng cụ ăn, hương vị và các “note” thú vị về trải nghiệm ẩm thực.
+                 4. Mật Lệnh S-HUNT (01 Giấy hướng dẫn luật chơi)`
+            },
+            check: {
+                name: "S-CHECK",
+                price: "299.000đ",
+                img: "/images/s-check.jpg",
+               desc: `S-Check biến những kiến thức lịch sử, địa lý thành các bài toán logic hấp dẫn. Người chơi sẽ được khám phá đa dạng các mảng văn hóa, từ tín ngưỡng dân gian đến các kỳ quan thiên nhiên đồ sộ một cách trực quan và hệ thống. 
+                  - Thành phần:
+                 1. Bản Đồ Mật Mã (02 Bảng ký hiệu): Bảng tra cứu giải nghĩa hệ thống icon di sản   
+                 2. Khay Lưu Trữ Di Sản (02 Bảng gỗ): Gồm 2 bảng gỗ cùng 24 thẻ ảnh đại diện cho di sản 3 miền, phía dưới tích hợp các icon về vùng miền, loại hình và tính tương tác 
+                 3. Hồ Sơ Mật (02 Bộ thẻ vuông & 24 Thẻ kiến thức): Bộ thẻ chứa từ khóa, thông tin lịch sử, năm UNESCO công nhận và các “note” đặc trưng nổi bật của từng di sản
+                 4. Mật Lệnh S-HUNT (01 Giấy hướng dẫn luật chơi)`
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productKey = urlParams.get('id') || 'mlem';
+        const product = productData[productKey];
+
+        if (product) {
+            document.getElementById('detailImg').src = product.img;
+            document.getElementById('detailImg').alt = product.name;
+            document.getElementById('detailName').innerText = product.name;
+            document.getElementById('detailPrice').innerText = product.price;
+            document.getElementById('detailDesc').innerText = product.desc;
+        }
+
+        function changeQuantity(amount) {
+            const input = document.getElementById('quantityInput');
+            let value = parseInt(input.value) + amount;
+            if (value < 1) value = 1;
+            input.value = value;
+        }
+
+        function openOrderModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.getElementById('orderForm').reset();
+            document.getElementById('orderAddress').classList.remove('invalid');
+            document.getElementById('orderPhone').classList.remove('invalid');
+            document.getElementById('addressError').style.display = 'none';
+            document.getElementById('phoneError').style.display = 'none';
+        }
+
+        // Đóng mở hộp thoại thành công
+        function openSuccessModal() {
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            const addressInput = document.getElementById('orderAddress');
+            const phoneInput = document.getElementById('orderPhone');
+            const addressError = document.getElementById('addressError');
+            const phoneError = document.getElementById('phoneError');
+            let isValid = true;
+
+            if (addressInput.value.trim() === "") {
+                addressInput.classList.add('invalid');
+                addressError.style.display = 'block';
+                isValid = false;
+            } else {
+                addressInput.classList.remove('invalid');
+                addressError.style.display = 'none';
+            }
+
+            if (phoneInput.value.trim() === "") {
+                phoneInput.classList.add('invalid');
+                phoneError.style.display = 'block';
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('invalid');
+                phoneError.style.display = 'none';
+            }
+
+            if (isValid) {
+                closeOrderModal(); // Đóng form nhập hàng
+                openSuccessModal(); // Mở thông báo có dấu tích xanh
+            }
+        }
+    </script>
+</body>
+</html>
