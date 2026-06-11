@@ -1,4 +1,3 @@
-/* --- Reset & Cài đặt chung --- */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +13,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- Thanh Điều Hướng (Header) --- */
 header {
     position: fixed;
     top: 0;
@@ -56,7 +54,6 @@ nav ul li a:hover, nav ul li a.active {
     color: white;
 }
 
-/* --- Các Section Chung --- */
 section {
     padding: 80px 20px;
 }
@@ -72,7 +69,6 @@ section {
     color: #000;
 }
 
-/* --- 1. Trang Chủ (Hero Section) --- */
 #trang-chu {
     background-color: #b0a496; 
     min-height: 100vh;
@@ -83,8 +79,6 @@ section {
     padding-left: 20px;
     padding-right: 20px;
 }
-
-/* Khung bọc xử lý lớp tọa độ */
 .hero-wrapper {
     position: relative;
     width: 100%;
@@ -93,7 +87,6 @@ section {
     justify-content: center;
     align-items: center;
 }
-
 #trang-chu::after {
     content: '';
     position: absolute;
@@ -105,7 +98,6 @@ section {
     z-index: 2;
     pointer-events: none;
 }
-/* Ảnh hiển thị trọn vẹn không lỗi tỉ lệ */
 .hero-main-img {
     width: 60%;
     height: auto;
@@ -113,8 +105,6 @@ section {
     user-select: none;
     pointer-events: none;
 }
-
-/* Khối chữ căn giữa tuyệt đối đè lên ảnh */
 .hero-text-overlay {
     position: absolute;
     top: 50%;
@@ -125,7 +115,6 @@ section {
     color: #ffffff;
     z-index: 5;
 }
-
 .hero-text-overlay h1 {
     font-size: 80px;
     font-weight: bold;
@@ -133,7 +122,6 @@ section {
     letter-spacing: 0.5px;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
-
 .hero-text-overlay p {
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -154,7 +142,7 @@ section {
         line-height: 1.4;
     }
 }
-/* --- 2. Giới Thiệu (About Section) --- */
+
 #gioi-thieu {
     background-color: #ffffff;
 }
@@ -201,7 +189,6 @@ section {
     border-radius: 4px;
 }
 
-/* --- 3. Bộ Sản Phẩm (Products Section) --- */
 #bo-san-pham {
     background-color: #ffffff;
     padding-top: 40px;
@@ -232,7 +219,6 @@ section {
     font-weight: bold;
 }
 
-/* --- 4. Tại Sao Nên Chọn (Why Choose Us) --- */
 #tai-sao-chon {
     background-color: #ffffff;
     text-align: center;
@@ -271,21 +257,17 @@ section {
     text-align: justify;
 }
 
-
-/* -- Hiệu ứng trỏ chuột Buy Now -- */
 .product-img-wrapper {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
-
 .product-img-wrapper img {
     width: 100%;
     height: auto;
     display: block;
     transition: filter 0.3s ease;
 }
-
 .btn-buy-now-link {
     position: absolute;
     top: 50%;
@@ -303,7 +285,6 @@ section {
     z-index: 10;
     border-radius: 4px;
 }
-
 .product-img-wrapper:hover .btn-buy-now-link {
     opacity: 1;
 }
@@ -311,13 +292,11 @@ section {
     opacity: 1;
 }
 
-/* Giao diện chi tiết sản phẩm */
 .product-detail-view {
     display: none;
     width: 100%;
     animation: fadeIn 0.4s ease;
 }
-
 .btn-go-back {
     text-decoration: none;
     display: inline-flex;
@@ -332,26 +311,21 @@ section {
     gap: 40px;
     align-items: flex-start;
 }
-
 .detail-image {
     flex: 1.2;
 }
-
 .detail-image img {
     width: 100%;
     height: auto;
     display: block;
 }
-
 .detail-info {
     flex: 1;
 }
-
 .detail-info h3 {
     font-size: 28px;
     margin-bottom: 10px;
 }
-
 .detail-price {
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -359,7 +333,6 @@ section {
     font-weight: bold;
     margin-bottom: 20px;
 }
-
 .detail-desc {
     font-family: Arial, sans-serif;
     font-size: 15px;
@@ -367,7 +340,6 @@ section {
     line-height: 1.6;
     margin-bottom: 30px;
 }
-
 .quantity-selector {
     display: flex;
     align-items: center;
@@ -379,13 +351,11 @@ section {
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
 }
-
 .quantity-controls {
     display: flex;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
 .quantity-controls button {
     background: none;
     border: none;
@@ -395,7 +365,6 @@ section {
     font-size: 18px;
     color: #555;
 }
-
 .quantity-controls input {
     width: 45px;
     border: none;
@@ -405,7 +374,6 @@ section {
     font-size: 15px;
     font-weight: bold;
 }
-
 .btn-checkout-trigger {
     width: 100%;
     background-color: #e75b52;
@@ -419,12 +387,10 @@ section {
     cursor: pointer;
     transition: background 0.2s;
 }
-
 .btn-checkout-trigger:hover {
     background-color: #d14a42;
 }
 
-/* Hộp thoại điền thông tin đặt hàng */
 .order-modal-overlay {
     display: none;
     position: fixed;
@@ -437,7 +403,6 @@ section {
     justify-content: center;
     align-items: center;
 }
-
 .order-modal-card {
     background-color: white;
     padding: 30px;
@@ -447,18 +412,15 @@ section {
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     animation: scaleUp 0.3s ease;
 }
-
 .order-modal-card h3 {
     margin-bottom: 20px;
     font-size: 22px;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
 }
-
 .form-field {
     margin-bottom: 20px;
 }
-
 .form-field label {
     display: block;
     font-family: Arial, sans-serif;
@@ -466,7 +428,6 @@ section {
     font-weight: bold;
     margin-bottom: 8px;
 }
-
 .form-field input {
     width: 100%;
     padding: 12px;
@@ -475,12 +436,10 @@ section {
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
-
 .form-field input.invalid {
     border-color: #e75b52;
     background-color: #fff8f8;
 }
-
 .error-msg {
     display: none;
     color: #e75b52;
@@ -489,14 +448,12 @@ section {
     margin-top: 5px;
     font-weight: bold;
 }
-
 .modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 25px;
 }
-
 .btn-cancel {
     background-color: #eee;
     color: #333;
@@ -508,7 +465,6 @@ section {
     cursor: pointer;
     font-family: Arial, sans-serif;
 }
-
 .btn-confirm {
     background-color: #e75b52;
     color: white;
@@ -524,7 +480,6 @@ section {
 @keyframes fadeIn {
     from { opacity: 0; } to { opacity: 1; }
 }
-
 @keyframes scaleUp {
     from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; }
 }
@@ -533,9 +488,6 @@ section {
     .detail-wrapper { flex-direction: column; }
 }
 
-
-
-/* --- 5. Liên Hệ & Đăng Ký (Contact Section) --- */
 #lien-he {
     background-color: #fff1f0;
     text-align: center;
@@ -579,52 +531,41 @@ section {
     font-family: Arial, sans-serif;
 }
 
-/* --- Chân Trang (Footer) --- */
 footer {
     background-color: #ffffff; 
     color: #ffffff;
     padding: 40px 20px;
-    text-align: left; /* Căn lề trái toàn bộ chữ */
+    text-align: left;
 }
-
 .footer-content {
     max-width: 800px; 
     margin: 0 auto;
 }
-
-/* Tiêu đề có thanh sọc vàng đứng ở đầu */
 .footer-title {
-    color: #cc5b5b; /* Màu vàng thương hiệu nổi bật */
+    color: #cc5b5b;
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-left: 4px solid #cc5b5b; /* Thanh dọc đứng */
+    border-left: 4px solid #cc5b5b;
     padding-left: 10px;
     font-family: Arial, sans-serif;
 }
-
-/* Khối thông tin địa chỉ, sđt */
 .footer-info p {
     font-family: Arial, sans-serif;
     font-size: 15px;
     margin-bottom: 12px;
     color: #161414;
 }
-
 .footer-info p strong {
     color: #161414;
 }
-
-/* Khối chứa các ô tròn mạng xã hội */
 .footer-socials {
     display: flex;
     gap: 15px;
     margin-top: 25px;
     margin-bottom: 20px;
 }
-
-/* Định dạng chung cho nút tròn */
 .social-circle {
     width: 40px;
     height: 40px;
@@ -640,18 +581,13 @@ footer {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s;
 }
-
 .social-circle i {
-    font-size: 18px; /* Kích thước logo vừa vặn */
+    font-size: 18px;
 }
-
-/* Hiệu ứng rê chuột nhẹ nhàng */
 .social-circle:hover {
-    background-color: #e75b52; /* Chuyển màu cam đỏ khi hover tạo điểm nhấn */
+    background-color: #e75b52;
     transform: scale(1.05);
 }
-
-/* Dòng bản quyền mờ phía dưới */
 .footer-copyright {
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -662,7 +598,6 @@ footer {
     text-align: center;
 }
 
-/* Tương thích di động */
 @media (max-width: 768px) {
     footer {
         text-align: center;
@@ -676,7 +611,6 @@ footer {
     }
 }
 
-/* --- Responsive cho điện thoại --- */
 @media (max-width: 768px) {
     nav ul { display: none; }
     .about-wrapper { flex-direction: column; }
@@ -686,13 +620,9 @@ footer {
     .btn-submit { padding: 12px 0; }
 }
 
-
-/* --- CSS Bổ sung cho trang Thông tin chi tiết & Thông tin ảnh --- */
-
-/* Nút xem thông tin chi tiết tại trang sản phẩm */
 .btn-detail {
     width: 100%;
-    background-color: #66bb6a; /* Màu xanh lá nhẹ */
+    background-color: #66bb6a;
     color: white;
     border: none;
     padding: 12px;
@@ -702,7 +632,7 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s;
-    margin-bottom: 10px; /* Nằm ngay trên nút đặt hàng */
+    margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -711,10 +641,9 @@ footer {
     background-color: #4caf50;
 }
 
-/* Lưới hiển thị 24 ảnh di sản (3 cột x 8 dòng) */
 .heritage-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 30px;
 }
@@ -738,7 +667,7 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover;
-    aspect-ratio: 4/3; /* Định hình khung ảnh đều nhau */
+    aspect-ratio: 4/3;
     border-radius: 4px;
     margin-bottom: 10px;
 }
@@ -749,7 +678,6 @@ footer {
     font-weight: 500;
 }
 
-/* Định dạng trang nội dung chi tiết bài viết (thong-tin-anh.html) */
 .article-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -810,14 +738,20 @@ footer {
     text-decoration: underline;
 }
 
-/* Mobile responsive cho lưới ảnh */
 @media (max-width: 768px) {
     .heritage-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cột trên điện thoại */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (max-width: 480px) {
     .heritage-grid {
-        grid-template-columns: 1fr; /* 1 cột trên màn hình siêu nhỏ */
+        grid-template-columns: 1fr;
     }
+}
+
+#detailImg {
+    margin-bottom: 25px;
+    display: block;
+    width: 100%;
+    height: auto;
 }
