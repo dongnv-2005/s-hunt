@@ -169,5 +169,28 @@ const S_HUNT_DATABASE = {
                 link: "https://vi.wikipedia.org/wiki/Di_sản_thế_giới_tại_Việt_Nam"
             }
         }))
+    },
+
+    stage: {
+        title: "Danh sách Nghệ thuật - Bộ S-STAGE",
+        items: Array.from({ length: 24 }, (_, i) => ({
+            imgId: `stage_${i + 1}`,
+            name: `Nghệ thuật Sân khấu số ${i + 1}`,
+            thumb: `/images/stage/thumb_${i + 1}.jpg`,
+            
+            article: {
+                title: `CHI TIẾT NGHỆ THUẬT SÂN KHẤU SỐ ${i + 1}`,
+                subtitle: `Hành trình khám phá các loại hình nghệ thuật biểu diễn truyền thống Việt Nam`,
+                heading1: "1. Nguồn gốc Xuất xứ & Nhạc cụ Đặc trưng",
+                text1: `Bài viết thuyết minh chi tiết về hoàn cảnh ra đời, cái nôi phát triển và những nét đặc sắc trong không gian văn hóa nghệ thuật của loại hình trình diễn số ${i + 1}. Người chơi sẽ được tìm hiểu sâu về hệ thống nhạc cụ đi kèm (như đàn bầu, đàn nhị, trống chèo...) tạo nên hồn cốt riêng biệt cho từng làn điệu.`,
+                img1: `/images/stage/detail_a_${i + 1}.jpg`,
+                source1: `Nguồn: Viện Văn hóa Nghệ thuật quốc gia Việt Nam`,
+                heading2: "2. Trang phục Biểu diễn & Yếu tố Giao tiếp",
+                text2: `Mô tả chi tiết về trang phục truyền thống, quy cách hóa trang và các phụ kiện đặc trưng tôn lên tính cách nhân vật. Thẻ cũng bóc tách các đặc điểm nhận diện, từ khóa cốt lõi và tính tương tác đặc trưng để người chơi dễ dàng liên tưởng, phân tích tư duy logic nhằm phán đoán chính xác bộ thẻ của đối phương.`,
+                heading3: "3. Tư liệu minh họa",
+                img2: `/images/stage/detail_b_${i + 1}.jpg`,
+                link: "https://vi.wikipedia.org/wiki/Nghệ_thuật_truyền_thống_Việt_Nam"
+            }
+        }))
     }
 };
