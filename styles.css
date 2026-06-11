@@ -208,8 +208,10 @@ section {
 }
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 280px);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
     gap: 30px;
+    justify-content: center;
 }
 .product-card img {
     width: 100%;
@@ -682,4 +684,140 @@ footer {
     .features-grid { grid-template-columns: 1fr; }
     .form-inline { flex-direction: column; }
     .btn-submit { padding: 12px 0; }
+}
+
+
+/* --- CSS Bổ sung cho trang Thông tin chi tiết & Thông tin ảnh --- */
+
+/* Nút xem thông tin chi tiết tại trang sản phẩm */
+.btn-detail {
+    width: 100%;
+    background-color: #66bb6a; /* Màu xanh lá nhẹ */
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 10px; /* Nằm ngay trên nút đặt hàng */
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+.btn-detail:hover {
+    background-color: #4caf50;
+}
+
+/* Lưới hiển thị 24 ảnh di sản (3 cột x 8 dòng) */
+.heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+.heritage-card {
+    text-align: center;
+    background: #fbfbfb;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.heritage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.heritage-card a {
+    text-decoration: none;
+    color: inherit;
+}
+.heritage-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4/3; /* Định hình khung ảnh đều nhau */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.heritage-card p {
+    font-style: italic;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Định dạng trang nội dung chi tiết bài viết (thong-tin-anh.html) */
+.article-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+}
+.article-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 10px;
+}
+.article-subtitle {
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 40px;
+}
+.article-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+.article-content p {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.article-image-box {
+    text-align: center;
+    margin: 20px 0;
+}
+.article-image-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.image-source {
+    font-style: italic;
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+    display: block;
+}
+.article-link {
+    color: #e75b52;
+    text-decoration: none;
+    font-weight: bold;
+}
+.article-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive cho lưới ảnh */
+@media (max-width: 768px) {
+    .heritage-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên điện thoại */
+    }
+}
+@media (max-width: 480px) {
+    .heritage-grid {
+        grid-template-columns: 1fr; /* 1 cột trên màn hình siêu nhỏ */
+    }
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Chi Tiết Thẻ Bài - S-HUNT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="/images/logo.png" alt="S-Hunt Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#trang-chu">Trang chủ</a></li>
+                    <li><a href="../index.html#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="../index.html#bo-san-pham" class="active">Bộ sản phẩm</a></li>
+                    <li><a href="../index.html#tai-sao-chon">Tại sao nên chọn</a></li>
+                    <li><a href="../index.html#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding-top: 140px; padding-bottom: 120px; background-color: #ffffff;">
+        <div class="container">
+            
+            <a id="btnBackToGrid" href="#" class="btn-go-back">&larr; Trở về bộ danh mục thẻ</a>
+
+            <div class="article-wrapper" id="articleWrapper">
+                <h1 class="article-title" id="artTitle">TIÊU ĐỀ IN GIỮA VÀ ĐẬM</h1>
+                <div class="article-subtitle" id="artSubtitle">Đoạn chữ nghiêng nhỏ hơn miêu tả tổng quan</div>
+                
+                <div class="article-content">
+                    <h3 id="artHeading1">1. Heading (in đậm)</h3>
+                    <p id="artText1">Nội dung text phần thứ nhất kể về câu chuyện và nguồn gốc bài viết...</p>
+                    <div class="article-image-box">
+                        <img id="artImg1" src="" alt="Hình ảnh minh họa 1" onerror="this.src='https://placehold.co/600x400?text=Ảnh+Tư+Liệu+Chính'">
+                        <span class="image-source" id="artSource1">nguồn nghiêng ở dưới ảnh</span>
+                    </div>
+
+                    <h3 id="artHeading2">2. Heading (in đậm)</h3>
+                    <p id="artText2">Nội dung văn bản phần 2 giải nghĩa kiến thức chuyên sâu, từ khóa cốt lõi của trò chơi...</p>
+
+                    <h3 id="artHeading3">3. Tư liệu minh họa (In đậm)</h3>
+                    <div class="article-image-box">
+                        <img id="artImg2" src="" alt="Hình ảnh minh họa 2" onerror="this.src='https://placehold.co/600x350?text=Bản+Đồ+Hoặc+Hiện+Vật+Minh+Họa'">
+                    </div>
+                    <p style="font-family: Arial, sans-serif; font-size: 15px;">
+                        Xem thêm thông tin bách khoa toàn thư tại đây: 
+                        <a id="artLink" href="#" target="_blank" class="article-link">Liên kết nguồn tham khảo bài viết</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+            <div class="footer-info">
+                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm, Hanoi, Vietnam</p>
+                <p><strong>Liên hệ:</strong> 0972410248</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="social-circle" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-circle" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-circle" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Bản quyền thuộc về nhóm 4.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Phân tích tham số từ URL
+        const params = new URLSearchParams(window.location.search);
+        const prod = params.get('prod') || 'mlem';
+        const imgId = params.get('imgId');
+
+        // Gán link cho nút trở lại trang danh mục 24 ảnh
+        document.getElementById('btnBackToGrid').href = `./thong-tin-chi-tiet.html?id=${prod}`;
+
+        // Tìm kiếm chính xác bài viết của bức ảnh được nhấn
+        const currentDataset = S_HUNT_DATABASE[prod];
+        if (currentDataset) {
+            const foundItem = currentDataset.items.find(item => item.imgId === imgId);
+            
+            if (foundItem && foundItem.article) {
+                const art = foundItem.article;
+                
+                // Đổ dữ liệu động vào đúng cấu trúc giao diện yêu cầu
+                document.getElementById('artTitle').innerText = art.title;
+                document.getElementById('artSubtitle').innerText = art.subtitle;
+                
+                document.getElementById('artHeading1').innerText = art.heading1;
+                document.getElementById('artText1').innerText = art.text1;
+                document.getElementById('artImg1').src = art.img1;
+                document.getElementById('artSource1').innerText = art.source1;
+                
+                document.getElementById('artHeading2').innerText = art.heading2;
+                document.getElementById('artText2').innerText = art.text2;
+                
+                document.getElementById('artHeading3').innerText = art.heading3;
+                document.getElementById('artImg2').src = art.img2;
+                document.getElementById('artLink').href = art.link;
+                document.getElementById('artLink').innerText = `Tra cứu về ${foundItem.name} [Wikipedia]`;
+            } else {
+                document.getElementById('articleWrapper').innerHTML = "<p style='font-family:Arial; text-align:center;'>Không tìm thấy nội dung bài viết chi tiết của thẻ ảnh này.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

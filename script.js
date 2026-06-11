@@ -39,22 +39,6 @@ if (registerForm) {
     });
 }
 
-// Dữ liệu giả lập cho 2 sản phẩm
-const productData = {
-    mlem: {
-        name: "S-MLEM",
-        price: "$1.00",
-        img: "/images/s-mlem.jpg",
-        desc: "S-mlem khai thác tối đa niềm đam mê ẩm thực của đại chúng. Nhờ việc bóc tách các món ăn quen thuộc, trò chơi tạo ra những khoảnh khắc 'à hóa ra là vậy', giúp người chơi thêm trân trọng sự phong phú của nghệ thuật ẩm thực ba miền."
-    },
-    check: {
-        name: "S-CHECK",
-        price: "$1.00",
-        img: "/images/s-check.jpg",
-        desc: "S-check mở ra hành trình khám phá các địa danh, di sản văn hóa đặc sắc khắp chiều dài đất nước. Các câu hỏi tư duy và hệ thống nhận diện thông minh giúp người chơi vừa giải trí vừa tích lũy kiến thức địa lý toàn diện."
-    }
-};
-
 // Hiển thị màn hình chi tiết sản phẩm
 function showProductDetail(key) {
     const product = productData[key];
@@ -134,3 +118,56 @@ function handleOrderSubmit(event) {
         closeOrderModal();
     }
 }
+
+
+// Dữ liệu cấu trúc bài viết và danh sách 24 ảnh của từng bộ sản phẩm S-HUNT
+const S_HUNT_DATABASE = {
+    mlem: {
+        title: "Danh sách thẻ kiến thức - Bộ S-MLEM",
+        items: Array.from({ length: 24 }, (_, i) => ({
+            imgId: `mlem_${i + 1}`,
+            name: `Thẻ kiến thức số ${i + 1}`,
+            thumb: `/images/mlem/thumb_${i + 1}.jpg`,
+            
+            article: {
+                title: `CHI TIẾT THẺ KIẾN THỨC SỐ ${i + 1}`,
+                subtitle: `Hồ sơ mật: Khám phá cách chế biến, dụng cụ ăn, hương vị và các câu chuyện trải nghiệm độc đáo`,
+                
+                heading1: "1. Phương thức Chế biến & Hương vị Đặc trưng",
+                text1: `Thẻ kiến thức số ${i + 1} sẽ bóc tách chi tiết về phương pháp chế biến đặc trưng (ninh, nấu, hấp, kho...) phối hợp cùng hệ thống icon nguyên liệu chính. Qua đó, người chơi có thể cảm nhận được kết cấu và hương vị đặc trưng (chua, cay, mặn, ngọt, bùi...) mang đậm nét tinh tế của ẩm thực vùng miền.`,
+                img1: `/images/mlem/detail_a_${i + 1}.jpg`,
+                source1: `Nguồn: Trích nội dung Hồ Sơ Mật - Dự án S-HUNT`,
+                
+                heading2: "2. Dụng cụ thưởng thức & Trải nghiệm thực tế",
+                text2: `Không chỉ dừng lại ở món ăn, thẻ còn cung cấp các chỉ dẫn về dụng cụ ăn đi kèm truyền thống (mẹt, bát đất, đũa tre...) và cách bài trí chuẩn vị. Những "note" thú vị đi kèm mang lại góc nhìn mới mẻ, giúp người trẻ dễ dàng nhận diện và suy luận chính xác món ăn mà đối phương đang nắm giữ.`,
+                
+                heading3: "3. Tư liệu minh họa",
+                img2: `/images/mlem/detail_b_${i + 1}.jpg`,
+                link: "https://vi.wikipedia.org/wiki/Ẩm_thực_Việt_Nam"
+            }
+        }))
+    },
+    
+    check: {
+        title: "Danh sách Di sản - Bộ S-CHECK",
+        items: Array.from({ length: 24 }, (_, i) => ({
+            imgId: `check_${i + 1}`,
+            name: `Di sản Văn hóa số ${i + 1}`,
+            thumb: `/images/check/thumb_${i + 1}.jpg`,
+            
+            article: {
+                title: `CHI TIẾT DI SẢN VĂN HÓA SỐ ${i + 1}`,
+                subtitle: `Hành trình khám phá các kỳ quan và kiến trúc di sản Việt Nam`,
+                heading1: "1. Lịch sử Hình thành & Kiến trúc độc đáo",
+                text1: `Bài viết thuyết minh chi tiết về tiến trình lịch sử, niên đại xây dựng và những nét đặc sắc trong tư duy kiến trúc nghệ thuật của di sản số ${i + 1}.`,
+                img1: `/images/check/detail_a_${i + 1}.jpg`,
+                source1: `Nguồn: Cục Di sản văn hóa / UNESCO`,
+                heading2: "2. Công tác Bảo tồn và Phát huy Giá trị",
+                text2: `Mô tả thực trạng, ý nghĩa giáo dục và các hoạt động trải nghiệm, định hướng gìn giữ di sản này cho thế hệ mai sau trong hệ sinh thái board game S-HUNT.`,
+                heading3: "3. Tư liệu minh họa",
+                img2: `/images/check/detail_b_${i + 1}.jpg`,
+                link: "https://vi.wikipedia.org/wiki/Di_sản_thế_giới_tại_Việt_Nam"
+            }
+        }))
+    }
+};

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Thành Phần Bộ Thẻ - S-HUNT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="/images/logo.png" alt="S-Hunt Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#trang-chu">Trang chủ</a></li>
+                    <li><a href="../index.html#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="../index.html#bo-san-pham" class="active">Bộ sản phẩm</a></li>
+                    <li><a href="../index.html#tai-sao-chon">Tại sao nên chọn</a></li>
+                    <li><a href="../index.html#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding-top: 140px; padding-bottom: 100px; background-color: #ffffff;">
+        <div class="container">
+            <a id="btnBackToProduct" href="#" class="btn-go-back">&larr; Trở về sản phẩm</a>
+            
+            <h2 id="pageMainTitle" class="section-title" style="margin-top: 15px; margin-bottom: 10px;">Thành phần bộ thẻ</h2>
+            <p style="font-family: Arial, sans-serif; color: #666; margin-bottom: 30px;">Nhấp chọn vào từng thẻ ảnh để xem nội dung kiến thức, từ khóa và hồ sơ mật chi tiết.</p>
+
+            <div class="heritage-grid" id="gridContainer"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+            <div class="footer-info">
+                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm, Hanoi, Vietnam</p>
+                <p><strong>Liên hệ:</strong> 0972410248</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="social-circle" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-circle" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-circle" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Bản quyền thuộc về nhóm 4.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Lấy tham số id sản phẩm (mlem hoặc check) từ URL
+        const queryParams = new URLSearchParams(window.location.search);
+        const productId = queryParams.get('id') || 'mlem';
+        
+        // Trỏ link nút quay lại chính xác trang sản phẩm đó
+        document.getElementById('btnBackToProduct').href = `./san-pham.html?id=${productId}`;
+        
+        // Lấy bộ dữ liệu tương ứng từ file script.js
+        const dataset = S_HUNT_DATABASE[productId];
+
+        if (dataset) {
+            document.getElementById('pageMainTitle').innerText = dataset.title;
+            const gridContainer = document.getElementById('gridContainer');
+            
+            // Lặp để render đủ 24 ảnh lên giao diện
+            dataset.items.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'heritage-card';
+                
+                // Khi bấm vào thẻ, chuyển sang trang thong-tin-anh.html đi kèm với mã định danh ảnh cụ thể
+                card.innerHTML = `
+                    <a href="./thong-tin-anh.html?prod=${productId}&imgId=${item.imgId}">
+                        <img src="${item.thumb}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300?text=Thẻ+${index+1}'">
+                        <p>${item.name}</p>
+                    </a>
+                `;
+                gridContainer.appendChild(card);
+            });
+        } else {
+            document.getElementById('gridContainer').innerHTML = "<p style='font-family:Arial;'>Không tìm thấy dữ liệu bộ sản phẩm phù hợp.</p>";
+        }
+    </script>
+</body>
+</html>

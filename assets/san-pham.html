@@ -118,8 +118,10 @@
                             <button onclick="changeQuantity(1)">+</button>
                         </div>
                     </div>
-                    
+
+                    <a id="lnkDetail" href="#" class="btn-detail">Thông tin chi tiết</a>
                     <button class="btn-checkout-trigger" onclick="openOrderModal()">Đặt hàng</button>
+
                 </div>
             </div>
 
@@ -220,6 +222,8 @@
             document.getElementById('detailName').innerText = product.name;
             document.getElementById('detailPrice').innerText = product.price;
             document.getElementById('detailDesc').innerText = product.desc;
+
+            document.getElementById('lnkDetail').href = `./thong-tin-chi-tiet.html?id=${productKey}`;
         }
 
         function changeQuantity(amount) {
