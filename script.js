@@ -124,73 +124,127 @@ function handleOrderSubmit(event) {
 const S_HUNT_DATABASE = {
     mlem: {
         title: "Danh sách thẻ kiến thức - Bộ S-MLEM",
-        items: Array.from({ length: 24 }, (_, i) => ({
-            imgId: `mlem_${i + 1}`,
-            name: `Thẻ kiến thức số ${i + 1}`,
-            thumb: `/images/mlem/thumb_${i + 1}.jpg`,
-            
-            article: {
-                title: `CHI TIẾT THẺ KIẾN THỨC SỐ ${i + 1}`,
-                subtitle: `Hồ sơ mật: Khám phá cách chế biến, dụng cụ ăn, hương vị và các câu chuyện trải nghiệm độc đáo`,
-                
-                heading1: "1. Phương thức Chế biến & Hương vị Đặc trưng",
-                text1: `Thẻ kiến thức số ${i + 1} sẽ bóc tách chi tiết về phương pháp chế biến đặc trưng (ninh, nấu, hấp, kho...) phối hợp cùng hệ thống icon nguyên liệu chính. Qua đó, người chơi có thể cảm nhận được kết cấu và hương vị đặc trưng (chua, cay, mặn, ngọt, bùi...) mang đậm nét tinh tế của ẩm thực vùng miền.`,
-                img1: `/images/mlem/detail_a_${i + 1}.jpg`,
-                source1: `Nguồn: Trích nội dung Hồ Sơ Mật - Dự án S-HUNT`,
-                
-                heading2: "2. Dụng cụ thưởng thức & Trải nghiệm thực tế",
-                text2: `Không chỉ dừng lại ở món ăn, thẻ còn cung cấp các chỉ dẫn về dụng cụ ăn đi kèm truyền thống (mẹt, bát đất, đũa tre...) và cách bài trí chuẩn vị. Những "note" thú vị đi kèm mang lại góc nhìn mới mẻ, giúp người trẻ dễ dàng nhận diện và suy luận chính xác món ăn mà đối phương đang nắm giữ.`,
-                
-                heading3: "3. Tư liệu minh họa",
-                img2: `/images/mlem/detail_b_${i + 1}.jpg`,
-                link: "https://vi.wikipedia.org/wiki/Ẩm_thực_Việt_Nam"
+        items: [
+            {
+                imgId: "mlem_1",
+                name: "Phở Bò Hà Nội",
+                thumb: "/images/mlem/thumb_1.jpg",
+                article: {
+                    title: "CHI TIẾT THẺ PHỞ BÒ HÀ NỘI",
+                    subtitle: "Hồ sơ mật: Khám phá cách chế biến, dụng cụ ăn, hương vị và các câu chuyện trải nghiệm độc đáo",
+                    heading1: "1. Phương thức Chế biến & Hương vị Đặc trưng",
+                    text1: "Nước dùng phở bò được ninh từ xương ống bò kèm hành gừng nướng, quế, hồi, thảo quả tạo hương thơm thanh nhã. Vị ngọt tự nhiên sâu lắng hòa quyện với bánh phở mềm dẻo và thịt bò tái lăn chín tới.",
+                    img1: "/images/mlem/detail_a_1.jpg",
+                    source1: "Nguồn: Trích nội dung Hồ Sơ Mật - Dự án S-HUNT",
+                    heading2: "2. Dụng cụ thưởng thức & Trải nghiệm thực tế",
+                    text2: "Món ăn được thưởng thức tốt nhất trong bát sành sâu lòng để giữ nhiệt. Người Hà Nội thường ăn kèm quẩy giòn, thêm chút giấm tỏi hoặc chanh cốm tươi nhằm kích thích vị giác tối đa.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/mlem/detail_b_1.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Phở"
+                }
+            },
+            {
+                imgId: "mlem_2",
+                name: "Bún Chả",
+                thumb: "/images/mlem/thumb_2.jpg",
+                article: {
+                    title: "CHI TIẾT THẺ BÚN CHẢ",
+                    subtitle: "Hồ sơ mật: Khám phá cách chế biến, dụng cụ ăn, hương vị và các câu chuyện trải nghiệm độc đáo",
+                    heading1: "1. Phương thức Chế biến & Hương vị Đặc trưng",
+                    text1: "Chả viên và chả miếng được làm từ thịt lợn nạc vai và ba chỉ băm nhỏ, tẩm ướp gia vị rồi nướng trên than củi hồng. Nước chấm pha loãng có vị chua, ngọt, mặn hài hòa kèm đu đủ xanh ngâm.",
+                    img1: "/images/mlem/detail_a_2.jpg",
+                    source1: "Nguồn: Trích nội dung Hồ Sơ Mật - Dự án S-HUNT",
+                    heading2: "2. Dụng cụ thưởng thức & Trải nghiệm thực tế",
+                    text2: "Bún chả dọn ra mẹt tre lót lá chuối bọc bún rối, rổ rau sống đủ loại kinh giới, tía tô. Thực khách gắp bún thả ngập vào bát nước chấm ấm nóng chứa sẵn những miếng chả thơm lừng.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/mlem/detail_b_2.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Bún_chả"
+                }
             }
-        }))
+        ]
     },
     
     check: {
         title: "Danh sách Di sản - Bộ S-CHECK",
-        items: Array.from({ length: 24 }, (_, i) => ({
-            imgId: `check_${i + 1}`,
-            name: `Di sản Văn hóa số ${i + 1}`,
-            thumb: `/images/check/thumb_${i + 1}.jpg`,
-            
-            article: {
-                title: `CHI TIẾT DI SẢN VĂN HÓA SỐ ${i + 1}`,
-                subtitle: `Hành trình khám phá các kỳ quan và kiến trúc di sản Việt Nam`,
-                heading1: "1. Lịch sử Hình thành & Kiến trúc độc đáo",
-                text1: `Bài viết thuyết minh chi tiết về tiến trình lịch sử, niên đại xây dựng và những nét đặc sắc trong tư duy kiến trúc nghệ thuật của di sản số ${i + 1}.`,
-                img1: `/images/check/detail_a_${i + 1}.jpg`,
-                source1: `Nguồn: Cục Di sản văn hóa / UNESCO`,
-                heading2: "2. Công tác Bảo tồn và Phát huy Giá trị",
-                text2: `Mô tả thực trạng, ý nghĩa giáo dục và các hoạt động trải nghiệm, định hướng gìn giữ di sản này cho thế hệ mai sau trong hệ sinh thái board game S-HUNT.`,
-                heading3: "3. Tư liệu minh họa",
-                img2: `/images/check/detail_b_${i + 1}.jpg`,
-                link: "https://vi.wikipedia.org/wiki/Di_sản_thế_giới_tại_Việt_Nam"
+        items: [
+            {
+                imgId: "check_1",
+                name: "Quần thể di tích Cố đô Huế",
+                thumb: "/images/check/thumb_1.jpg",
+                article: {
+                    title: "CHI TIẾT CỐ ĐÔ HUẾ",
+                    subtitle: "Hành trình khám phá các kỳ quan và kiến trúc di sản Việt Nam",
+                    heading1: "1. Lịch sử Hình thành & Kiến trúc độc đáo",
+                    text1: "Kinh đô của triều đại nhà Nguyễn từ năm 1802 đến năm 1945, nổi bật với hệ thống cung điện, thành quách và lăng tẩm mang đậm tư duy phong thủy phương Đông kết hợp kiến trúc quân sự phương Tây.",
+                    img1: "/images/check/detail_a_1.jpg",
+                    source1: "Nguồn: Cục Di sản văn hóa / UNESCO",
+                    heading2: "2. Công tác Bảo tồn và Phát huy Giá trị",
+                    text2: "Là di sản văn hóa thế giới đầu tiên của Việt Nam được UNESCO vinh danh. Công tác trùng tu bảo tồn các công trình trọng điểm giúp gìn giữ nguyên vẹn không gian văn hóa cung đình.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/check/detail_b_1.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Quần_the_di_tích_Cố_đô_Huế"
+                }
+            },
+            {
+                imgId: "check_2",
+                name: "Vịnh Hạ Long",
+                thumb: "/images/check/thumb_2.jpg",
+                article: {
+                    title: "CHI TIẾT VỊNH HẠ LONG",
+                    subtitle: "Hành trình khám phá các kỳ quan và kiến trúc di sản Việt Nam",
+                    heading1: "1. Lịch sử Hình thành & Kiến trúc độc đáo",
+                    text1: "Di sản thiên nhiên thế giới sở hữu hàng nghìn đảo đá vôi trùng điệp nổi lên từ mặt biển xanh ngọc. Quá trình kiến tạo địa chất vùng Karst trải qua hàng triệu năm hình thành các hang động lộng lẫy.",
+                    img1: "/images/check/detail_a_2.jpg",
+                    source1: "Nguồn: Cục Di sản văn hóa / UNESCO",
+                    heading2: "2. Công tác Bảo tồn và Phát huy Giá trị",
+                    text2: "Việc hạn chế rác thải nhựa và quản lý nghiêm ngặt tàu du lịch lưu trú giúp bảo vệ hệ sinh thái biển cũng như cảnh quan tự nhiên phục vụ hoạt động giáo dục địa lý trực quan.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/check/detail_b_2.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Vịnh_Hạ_Long"
+                }
             }
-        }))
+        ]
     },
 
     stage: {
         title: "Danh sách Nghệ thuật - Bộ S-STAGE",
-        items: Array.from({ length: 24 }, (_, i) => ({
-            imgId: `stage_${i + 1}`,
-            name: `Nghệ thuật Sân khấu số ${i + 1}`,
-            thumb: `/images/stage/thumb_${i + 1}.jpg`,
-            
-            article: {
-                title: `CHI TIẾT NGHỆ THUẬT SÂN KHẤU SỐ ${i + 1}`,
-                subtitle: `Hành trình khám phá các loại hình nghệ thuật biểu diễn truyền thống Việt Nam`,
-                heading1: "1. Nguồn gốc Xuất xứ & Nhạc cụ Đặc trưng",
-                text1: `Bài viết thuyết minh chi tiết về hoàn cảnh ra đời, cái nôi phát triển và những nét đặc sắc trong không gian văn hóa nghệ thuật của loại hình trình diễn số ${i + 1}. Người chơi sẽ được tìm hiểu sâu về hệ thống nhạc cụ đi kèm (như đàn bầu, đàn nhị, trống chèo...) tạo nên hồn cốt riêng biệt cho từng làn điệu.`,
-                img1: `/images/stage/detail_a_${i + 1}.jpg`,
-                source1: `Nguồn: Viện Văn hóa Nghệ thuật quốc gia Việt Nam`,
-                heading2: "2. Trang phục Biểu diễn & Yếu tố Giao tiếp",
-                text2: `Mô tả chi tiết về trang phục truyền thống, quy cách hóa trang và các phụ kiện đặc trưng tôn lên tính cách nhân vật. Thẻ cũng bóc tách các đặc điểm nhận diện, từ khóa cốt lõi và tính tương tác đặc trưng để người chơi dễ dàng liên tưởng, phân tích tư duy logic nhằm phán đoán chính xác bộ thẻ của đối phương.`,
-                heading3: "3. Tư liệu minh họa",
-                img2: `/images/stage/detail_b_${i + 1}.jpg`,
-                link: "https://vi.wikipedia.org/wiki/Nghệ_thuật_truyền_thống_Việt_Nam"
+        items: [
+            {
+                imgId: "stage_1",
+                name: "Nghệ thuật Đờn ca tài tử",
+                thumb: "/images/stage/thumb_1.jpg",
+                article: {
+                    title: "CHI TIẾT ĐỜN CA TÀI TỬ SOUTH",
+                    subtitle: "Hành trình khám phá các loại hình nghệ thuật biểu diễn truyền thống Việt Nam",
+                    heading1: "1. Nguồn gốc Xuất xứ & Nhạc cụ Đặc trưng",
+                    text1: "Loại hình nghệ thuật dân gian đặc sắc ra đời từ cuối thế kỷ 19 tại vùng sông nước Nam Bộ. Ban nhạc sử dụng nhạc cụ chính gồm đờn kìm, đờn cò, đờn tranh và đờn tỳ bà phối hợp hòa âm tự biên tự diễn.",
+                    img1: "/images/stage/detail_a_1.jpg",
+                    source1: "Nguồn: Viện Văn hóa Nghệ thuật quốc gia Việt Nam",
+                    heading2: "2. Trang phục Biểu diễn & Yếu tố Giao tiếp",
+                    text2: "Nghệ nhân nam thường mặc áo dài đen, khăn đóng; nghệ nhân nữ diện áo dài truyền thống hoặc áo bà ba mộc mạc. Lời ca mang đậm tính ngẫu hứng giúp người chơi dễ phân tích biểu cảm, điệu bộ.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/stage/detail_b_1.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Đờn_ca_tài_tử_Nam_Bộ"
+                }
+            },
+            {
+                imgId: "stage_2",
+                name: "Nghệ thuật Sân khấu Chèo",
+                thumb: "/images/stage/thumb_2.jpg",
+                article: {
+                    title: "CHI TIẾT SÂN KHẤU CHÈO",
+                    subtitle: "Hành trình khám phá các loại hình nghệ thuật biểu diễn truyền thống Việt Nam",
+                    heading1: "1. Nguồn gốc Xuất xứ & Nhạc cụ Đặc trưng",
+                    text1: "Loại hình sân khấu kịch hát dân gian phát triển mạnh mẽ ở vùng đồng bằng Bắc Bộ. Tiếng trống chèo giữ vai trò chỉ huy giữ nhịp cho dàn nhạc gồm nhị, sáo, sến bộc lộ tâm trạng nhân vật.",
+                    img1: "/images/stage/detail_a_2.jpg",
+                    source1: "Nguồn: Viện Văn hóa Nghệ thuật quốc gia Việt Nam",
+                    heading2: "2. Trang phục Biểu diễn & Yếu tố Giao tiếp",
+                    text2: "Nhân vật nữ mặc áo tứ thân, thắt bao sồi, đầu vấn khăn; nhân vật hề chèo vận đồ nâu mộc mạc gậy tre. Điệu bộ cách điệu kết hợp ngôn ngữ ẩn dụ sắc sảo là chìa khóa để suy luận mật lệnh.",
+                    heading3: "3. Tư liệu minh họa",
+                    img2: "/images/stage/detail_b_2.jpg",
+                    link: "https://vi.wikipedia.org/wiki/Chèo"
+                }
             }
-        }))
+        ]
     }
 };
