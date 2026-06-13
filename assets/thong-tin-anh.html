@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
 
     <header>
@@ -28,35 +30,44 @@
 
     <section style="padding-top: 140px; padding-bottom: 120px; background-color: #ffffff;">
         <div class="container">
-            
+
             <a id="btnBackToGrid" href="#" class="btn-go-back">&larr; Trở về bộ danh mục thẻ</a>
 
             <div class="article-wrapper" id="articleWrapper">
                 <h1 class="article-title" id="artTitle">TIÊU ĐỀ IN GIỮA VÀ ĐẬM</h1>
                 <div class="article-subtitle" id="artSubtitle">Đoạn chữ nghiêng nhỏ hơn miêu tả tổng quan</div>
-                
+
                 <div class="article-content">
-                    <h3 id="artHeading1">1. Heading (in đậm)</h3>
-                    <p id="artText1">Nội dung text phần thứ nhất kể về câu chuyện và nguồn gốc bài viết...</p>
+                    <h3 id="artHeading1">1. Heading</h3>
+                    <p id="artText1"></p>
                     <div class="article-image-box">
                         <img id="artImg1" src="" alt="Hình ảnh minh họa 1" onerror="this.src='https://placehold.co/600x400?text=Ảnh+Tư+Liệu+Chính'">
-                        <span class="image-source" id="artSource1">nguồn nghiêng ở dưới ảnh</span>
+                        <span class="image-source" id="artSource1"></span>
                     </div>
 
-                    <h3 id="artHeading2">2. Heading (in đậm)</h3>
-                    <p id="artText2">Nội dung văn bản phần 2 giải nghĩa kiến thức chuyên sâu, từ khóa cốt lõi của trò chơi...</p>
-
-                    <h3 id="artHeading3">3. Tư liệu minh họa (In đậm)</h3>
+                    <h3 id="artHeading2">2. Heading</h3>
+                    <p id="artText2"></p>
                     <div class="article-image-box">
-                        <img id="artImg2" src="" alt="Hình ảnh minh họa 2" onerror="this.src='https://placehold.co/600x350?text=Bản+Đồ+Hoặc+Hiện+Vật+Minh+Họa'">
+                        <img id="artImg2" src="" alt="Hình ảnh minh họa 2" onerror="this.src='https://placehold.co/600x400?text=Ảnh+Tư+Liệu+Tổng+Quan'">
+                        <span class="image-source" id="artSource2"></span>
                     </div>
-                    <p style="font-family: Arial, sans-serif; font-size: 15px;">
-                        Xem thêm thông tin bách khoa toàn thư tại đây: 
-                        <a id="artLink" href="#" target="_blank" class="article-link">Liên kết nguồn tham khảo bài viết</a>
-                    </p>
+                    <p id="artText3" style="display:none;"></p>
+
+                    <h3 id="artHeading3">3. Tư liệu minh họa</h3>
+                    <div class="article-image-box">
+                        <img id="artImg3" src="" alt="Hình ảnh minh họa 3" onerror="this.src='https://placehold.co/600x350?text=Bản+Đồ+Hoặc+Hiện+Vật+Minh+Họa'">
+                        <span class="image-source" id="artSource3"></span>
+                    </div>
+
+
+                    <div id="linksContainer" style="margin: 20px 0; font-family: Arial, sans-serif;"></div>
+
+                    <div id="conclusionArea" style="display: none; margin-top: 30px; border-top: 1px dashed #eee; padding-top: 15px;">
+                        <h3 id="artHeading4">4. Kết luận</h3>
+                        <p class="article-conclusion" id="artText4">Nội dung kết luận...</p>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -81,42 +92,122 @@
 
     <script src="../script.js"></script>
     <script>
-        // Phân tích tham số từ URL
         const params = new URLSearchParams(window.location.search);
         const prod = params.get('prod') || 'mlem';
         const imgId = params.get('imgId');
 
-        // Gán link cho nút trở lại trang danh mục 24 ảnh
         document.getElementById('btnBackToGrid').href = `./thong-tin-chi-tiet.html?id=${prod}`;
 
-        // Tìm kiếm chính xác bài viết của bức ảnh được nhấn
         const currentDataset = S_HUNT_DATABASE[prod];
         if (currentDataset) {
             const foundItem = currentDataset.items.find(item => item.imgId === imgId);
-            
+
             if (foundItem && foundItem.article) {
                 const art = foundItem.article;
-                
-                // Đổ dữ liệu động vào đúng cấu trúc giao diện yêu cầu
+
                 document.getElementById('artTitle').innerText = art.title;
                 document.getElementById('artSubtitle').innerText = art.subtitle;
-                
-                document.getElementById('artHeading1').innerText = art.heading1;
-                document.getElementById('artText1').innerText = art.text1;
-                document.getElementById('artImg1').src = art.img1;
-                document.getElementById('artSource1').innerText = art.source1;
-                
-                document.getElementById('artHeading2').innerText = art.heading2;
-                document.getElementById('artText2').innerText = art.text2;
-                
-                document.getElementById('artHeading3').innerText = art.heading3;
-                document.getElementById('artImg2').src = art.img2;
-                document.getElementById('artLink').href = art.link;
-                document.getElementById('artLink').innerText = `Tra cứu về ${foundItem.name} [Wikipedia]`;
+
+                document.getElementById('artHeading1').innerText = art.heading1 || "1. Kiến thức chung";
+                const text1Container = document.getElementById('artText1');
+                if (art.text1) {
+                    text1Container.innerHTML = art.text1.split('\n')
+                        .map(p => `<span class="sub-paragraph">${p.replace(/[\s\u00A0]+/g, ' ').trim()}</span>`)
+                        .join('');
+                } else {
+                    text1Container.innerText = "";
+                }
+                document.getElementById('artImg1').src = art.img1 || "";
+                document.getElementById('artSource1').innerText = art.source1 || "Ảnh minh họa";
+
+                document.getElementById('artHeading2').innerText = art.heading2 || "2. Chi tiết di sản";
+                const text2Container = document.getElementById('artText2');
+                if (art.text2) {
+                    text2Container.innerHTML = art.text2.split('\n')
+                        .map(p => `<span class="sub-paragraph">${p.replace(/[\s\u00A0]+/g, ' ').trim()}</span>`)
+                        .join('');
+                } else {
+                    text2Container.innerText = "";
+                }
+
+                if (art.img2) {
+                    document.getElementById('artImg2').src = art.img2;
+                }
+                document.getElementById('artSource2').innerText = art.source2 ;
+
+                document.getElementById('artHeading3').innerText = art.heading3 || "3. Tư liệu minh họa";
+                if (art.img3) {
+                    document.getElementById('artImg3').src = art.img3;
+                } else if (art.img2 && !art.img3 && imgId === "stage_1") {
+                    document.getElementById('artImg3').src = art.img2;
+                }
+
+                const text3Container = document.getElementById('artText3');
+                if (art.text3) {
+                    text3Container.style.display = 'block';
+                    text3Container.innerHTML = art.text3.split('\n')
+                        .map(p => `<span class="sub-paragraph">${p.replace(/[\s\u00A0]+/g, ' ').trim()}</span>`)
+                        .join('');
+                } else {
+                    text3Container.style.display = 'none';
+                    text3Container.innerText = "";
+                }
+
+                const linksContainer = document.getElementById('linksContainer');
+                linksContainer.innerHTML = "";
+
+                if (art.links && Array.isArray(art.links)) {
+                    art.links.forEach(item => {
+                        if (item.type === "card") {
+                            let iconClass = "fab fa-youtube";
+                            if (item.url.includes("tiktok.com")) iconClass = "fab fa-tiktok";
+
+                            const cardAnchor = document.createElement('a');
+                            cardAnchor.href = item.url;
+                            cardAnchor.target = "_blank";
+                            cardAnchor.className = "youtube-link-card";
+                            cardAnchor.style.display = "inline-flex";
+                            cardAnchor.innerHTML = `<i class="${iconClass}"></i> ${item.text}`;
+
+                            linksContainer.appendChild(cardAnchor);
+
+                        } else if (item.type === "text_link") {
+                            const textAnchor = document.createElement('a');
+                            textAnchor.href = item.url;
+                            textAnchor.target = "_blank";
+                            textAnchor.className = "article-custom-link";
+                            textAnchor.innerText = item.text;
+
+                            linksContainer.appendChild(textAnchor);
+
+                        } else if (item.type === "text") {
+                            const textParagraph = document.createElement('div');
+                            textParagraph.className = "article-source-text";
+                            textParagraph.innerHTML = `<strong>Trích nguồn:</strong> ${item.text}`;
+
+                            linksContainer.appendChild(textParagraph);
+                        }
+                    });
+                } else if (art.link) {
+                    const legacyAnchor = document.createElement('a');
+                    legacyAnchor.href = art.link;
+                    legacyAnchor.target = "_blank";
+                    legacyAnchor.className = "article-link";
+                    legacyAnchor.innerText = `Tra cứu về ${foundItem.name} [Wikipedia]`;
+                    linksContainer.appendChild(legacyAnchor);
+                }
+
+                if (art.heading4 && art.text4) {
+                    document.getElementById('conclusionArea').style.display = 'block';
+                    document.getElementById('artHeading4').innerText = art.heading4;
+                    document.getElementById('artText4').innerText = art.text4;
+                }
+
             } else {
                 document.getElementById('articleWrapper').innerHTML = "<p style='font-family:Arial; text-align:center;'>Không tìm thấy nội dung bài viết chi tiết của thẻ ảnh này.</p>";
             }
         }
     </script>
 </body>
+
 </html>
