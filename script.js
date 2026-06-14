@@ -528,7 +528,7 @@ const S_HUNT_DATABASE = {
                         }
                     ],
                     heading4: "KẾT LUẬN",
-                    text4: "Bánh chưng là biểu tượng văn hóa thiêng liêng và bất diệt nhất của ngày Tết cổ truyền Việt Nam, gói trọn triết lý nhân sinh về cội nguồn và trời đất. Đằng sau lớp lá dong xanh mướt và nhân nếp đậu bùi béo là sợi dây gắn kết tình cảm gia đình, là lời nhắc nhở thế hệ sau về lòng biết ơn đối với tổ tiên và nền văn minh lúa nước. ",
+                    text4: "Kẹo dừa không chỉ là một món ăn đặc sản nổi tiếng của vùng đất Bến Tre mà còn là kết tinh của sự khéo léo, sáng tạo trong lao động của người dân xứ dừa. Trải qua nhiều thế hệ, nghề làm kẹo dừa đã góp phần gìn giữ những giá trị văn hóa truyền thống, đồng thời quảng bá hình ảnh quê hương Bến Tre đến với du khách trong và ngoài nước. Ngày nay, dù có nhiều biến đổi để phù hợp với thị hiếu hiện đại, kẹo dừa vẫn giữ được hương vị đặc trưng, trở thành niềm tự hào của văn hóa ẩm thực Nam Bộ. ",
                 }
             },
             {
@@ -981,7 +981,7 @@ const S_HUNT_DATABASE = {
                         }
                     ],
                     heading4: "KẾT LUẬN",
-                    text4: "Bánh chưng là biểu tượng văn hóa thiêng liêng và bất diệt nhất của ngày Tết cổ truyền Việt Nam, gói trọn triết lý nhân sinh về cội nguồn và trời đất. Đằng sau lớp lá dong xanh mướt và nhân nếp đậu bùi béo là sợi dây gắn kết tình cảm gia đình, là lời nhắc nhở thế hệ sau về lòng biết ơn đối với tổ tiên và nền văn minh lúa nước. ",
+                    text4: "Thịt trâu gác bếp là món ăn mang đậm bản sắc văn hóa của đồng bào các dân tộc vùng Tây Bắc. Không chỉ thể hiện kinh nghiệm bảo quản thực phẩm độc đáo trong điều kiện miền núi, món ăn còn phản ánh tập quán sinh hoạt, đời sống lao động và tinh thần gắn kết cộng đồng của người dân nơi đây. Với hương vị đặc trưng từ thịt trâu, khói bếp và các loại gia vị núi rừng, thịt trâu gác bếp đã vượt ra khỏi phạm vi địa phương để trở thành một trong những đặc sản tiêu biểu của vùng cao Tây Bắc, góp phần giới thiệu nét đẹp văn hóa ẩm thực Việt Nam đến bạn bè trong và ngoài nước.",
                 }
             },
             {
