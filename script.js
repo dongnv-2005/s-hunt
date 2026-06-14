@@ -2668,7 +2668,7 @@ const S_HUNT_DATABASE = {
                         },
                          {
                             url: "https://www.tiktok.com/@ngheroi.hn/photo/7484239144965786898?is_from_webapp=1&sender_device=pc",
-                            text: "Các nhân vật trong múa rối ngước",
+                            text: "Các nhân vật trong múa rối nước",
                             type: "text_link" // Render dạng link xanh gạch chân như trong ảnh
                         },
                         {
