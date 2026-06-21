@@ -2663,7 +2663,7 @@ const S_HUNT_DATABASE = {
                     links: [
                         {
                             url: "https://www.youtube.com/watch?v=wKf7y-pSdJI",
-                            text: "Trích đoạn hát bội: Tạ Ôn Đình chém đầu Khương Linh Tá",
+                            text: "MÚA RỐI NƯỚC CỔ TRUYỀN | Thang Long Water Puppet Theater",
                             type: "card" // Render dạng nút bo tròn có icon YouTube đỏ
                         },
                          {
@@ -2915,7 +2915,7 @@ const S_HUNT_DATABASE = {
                     links: [
                         {
                             url: "https://youtu.be/BcqzYSN3MoM?si=_3m50zA3MmtIZZdQ",
-                            text: "Hát Xoan Phú Thọ - Mó Cá | Hát Hội | Nhạc Trữ Tình Chọn Lọc",
+                            text: "Trích đoạn hát bội: Tạ Ôn Đình chém đầu Khương Linh Tá",
                             type: "card" // Render dạng nút bo tròn có icon YouTube đỏ
                         },
                          
