@@ -104,11 +104,38 @@
             <a href="../index.html#bo-san-pham" class="btn-go-back">&larr; Trở về</a>
 
             <div class="detail-wrapper">
-                <div class="detail-image">
-                    <img id="detailImg" src="" alt="Hình ảnh sản phẩm">
-                    <a id="lnkDetail" href="#" class="btn-detail">Thông tin chi tiết</a>
+                <div style="flex: 1.2; max-width: 500px; width: 100%;">
+                    <div
+                        style="position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 1/1; background-color: #f5f5f5; width: 100%;">
+                        <div class="carousel-container"
+                            style="display: flex; transition: transform 0.4s ease; width: 100%; height: 100%;">
+                            <img id="detailImg" src="" alt="Hình ảnh sản phẩm"
+                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                            <img id="detailImg2" src="" alt="Hình ảnh chất liệu 1"
+                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                            <img id="detailImg3" src="" alt="Hình ảnh chất liệu 2"
+                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                        </div>
+
+                        <div id="carouselControls" style="display: none;">
+                            <button type="button" onclick="moveSlide(-1)"
+                                style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i
+                                    class="fas fa-chevron-left"></i></button>
+                            <button type="button" onclick="moveSlide(1)"
+                                style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i
+                                    class="fas fa-chevron-right"></i></button>
+                        </div>
+
+                        <div id="carouselBadge"
+                            style="display: none; position: absolute; bottom: 15px; right: 15px; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 4px 10px; border-radius: 12px; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; z-index: 10;">
+                            1/3
+                        </div>
+                    </div>
+                    <a id="lnkDetail" href="#" class="btn-detail" style="margin-top: 15px; width: 100%;">Thông tin chi
+                        tiết</a>
                 </div>
-                <div class="detail-info">
+
+                <div class="detail-info" style="flex: 1; width: 100%;">
                     <h3 id="detailName"></h3>
                     <div class="detail-price" id="detailPrice"></div>
                     <p class="detail-desc" id="detailDesc"></p>
@@ -123,10 +150,8 @@
                     </div>
 
                     <button class="btn-checkout-trigger" onclick="openOrderModal()">Đặt hàng</button>
-
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -143,6 +168,12 @@
                     <label>Số điện thoại *</label>
                     <input type="tel" id="orderPhone" placeholder="Nhập số điện thoại liên hệ">
                     <span class="error-msg" id="phoneError">* Vui lòng không để trống</span>
+                </div>
+                <div class="form-field" id="materialSelectField" style="display: none;">
+                    <label>Lựa chọn phiên bản / Chất liệu</label>
+                    <select id="orderMaterial" onchange="handleMaterialChange(this.value)"
+                        style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: Arial, sans-serif;">
+                    </select>
                 </div>
                 <div class="modal-actions">
                     <button type="button" class="btn-cancel" onclick="closeOrderModal()">Hủy</button>
@@ -216,8 +247,11 @@
             },
             stage: {
                 name: "S-STAGE",
-                price: "299.000đ",
-                img: "/images/s-stage 2.jpg",
+                variants: [
+                    { label: "Mặc định", price: "299.000đ", img: "/images/s-stage 2.jpg" },
+                    { label: "Chất liệu 1", price: "349.000đ", img: "/images/s-stage.jpg" },
+                    { label: "Chất liệu 2", price: "399.000đ", img: "/images/s-mlem.jpg" }
+                ],
                 desc: `S-Stage đưa người chơi bước vào thế giới của các nhân vật trong các trình diễn dân gian, mang đến những màn đấu trí mới mẻ, hấp dẫn xoay quanh các thanh âm, nhịp điệu và sân khấu di sản dân tộc.
           - Thành phần:
          1. Bản Đồ Mật Mã (02 Bảng ký hiệu): Bảng tra cứu giải nghĩa hệ thống icon nhân vật trong trình diễn dân gian
@@ -233,14 +267,73 @@
         const productKey = urlParams.get('id') || 'mlem';
         const product = productData[productKey];
 
-        if (product) {
-            document.getElementById('detailImg').src = product.img;
-            document.getElementById('detailImg').alt = product.name;
-            document.getElementById('detailName').innerText = product.name;
-            document.getElementById('detailPrice').innerText = product.price;
-            document.getElementById('detailDesc').innerText = product.desc;
+        let currentSlideIndex = 0;
+        let activeImages = [];
 
+        if (product) {
+            document.getElementById('detailDesc').innerText = product.desc;
             document.getElementById('lnkDetail').href = `./thong-tin-chi-tiet.html?id=${productKey}`;
+
+            if (productKey === 'stage') {
+                activeImages = product.variants.map(v => v.img);
+
+                document.getElementById('detailImg').src = product.variants[0].img;
+                document.getElementById('detailImg2').src = product.variants[1].img;
+                document.getElementById('detailImg3').src = product.variants[2].img;
+
+                // Hiển thị các bộ nút điều khiển của riêng sản phẩm Stage
+                document.getElementById('carouselControls').style.display = 'block';
+                document.getElementById('carouselBadge').style.display = 'block';
+
+                updateStageState(0);
+                setupMaterialDropdown();
+            } else {
+                activeImages = product.images;
+                document.getElementById('detailImg').src = activeImages[0];
+                document.getElementById('detailName').innerText = product.name;
+                document.getElementById('detailPrice').innerText = product.price;
+            }
+        }
+
+        function updateStageState(index) {
+            currentSlideIndex = index;
+            const variant = product.variants[index];
+
+            document.getElementById('detailName').innerText = `${product.name} - ${variant.label}`;
+            document.getElementById('detailPrice').innerText = variant.price;
+
+            document.getElementById('carouselBadge').innerText = `${index + 1}/${activeImages.length}`;
+
+            const container = document.querySelector('.carousel-container');
+            container.style.transform = `translateX(-${index * 100}%)`;
+
+            const materialSelect = document.getElementById('orderMaterial');
+            if (materialSelect) materialSelect.value = index;
+        }
+
+        function moveSlide(direction) {
+            let newIndex = currentSlideIndex + direction;
+            if (newIndex >= activeImages.length) newIndex = 0;
+            if (newIndex < 0) newIndex = activeImages.length - 1;
+
+            updateStageState(newIndex);
+        }
+
+        function setupMaterialDropdown() {
+            const selectField = document.getElementById('materialSelectField');
+            const selectEl = document.getElementById('orderMaterial');
+
+            if (productKey === 'stage') {
+                selectField.style.display = 'block';
+                selectEl.innerHTML = product.variants.map((v, idx) =>
+                    `<option value="${idx}">${v.label} (${v.price})</option>`
+                ).join('');
+            }
+        }
+
+        function handleMaterialChange(value) {
+            const idx = parseInt(value);
+            updateStageState(idx);
         }
 
         function changeQuantity(amount) {
@@ -252,6 +345,9 @@
 
         function openOrderModal() {
             document.getElementById('orderModal').style.display = 'flex';
+            if (productKey === 'stage') {
+                document.getElementById('orderMaterial').value = currentSlideIndex;
+            }
         }
 
         function closeOrderModal() {
@@ -263,7 +359,6 @@
             document.getElementById('phoneError').style.display = 'none';
         }
 
-        // Đóng mở hộp thoại thành công
         function openSuccessModal() {
             document.getElementById('successModal').style.display = 'flex';
         }
@@ -299,8 +394,8 @@
             }
 
             if (isValid) {
-                closeOrderModal(); // Đóng form nhập hàng
-                openSuccessModal(); // Mở thông báo có dấu tích xanh
+                closeOrderModal();
+                openSuccessModal();
             }
         }
     </script>
