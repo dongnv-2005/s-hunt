@@ -107,14 +107,15 @@
                 <div style="flex: 1.2; max-width: 500px; width: 100%;">
                     <div
                         style="position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 1/1; background-color: #f5f5f5; width: 100%;">
+
                         <div class="carousel-container"
                             style="display: flex; transition: transform 0.4s ease; width: 100%; height: 100%;">
                             <img id="detailImg" src="" alt="Hình ảnh sản phẩm"
                                 style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
                             <img id="detailImg2" src="" alt="Hình ảnh chất liệu 1"
-                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
                             <img id="detailImg3" src="" alt="Hình ảnh chất liệu 2"
-                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
                         </div>
 
                         <div id="carouselControls" style="display: none;">
@@ -131,6 +132,7 @@
                             1/3
                         </div>
                     </div>
+
                     <a id="lnkDetail" href="#" class="btn-detail" style="margin-top: 15px; width: 100%;">Thông tin chi
                         tiết</a>
                 </div>
@@ -152,6 +154,7 @@
                     <button class="btn-checkout-trigger" onclick="openOrderModal()">Đặt hàng</button>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -159,6 +162,12 @@
         <div class="order-modal-card">
             <h3>Thông tin giao hàng</h3>
             <form id="orderForm" onsubmit="handleOrderSubmit(event)">
+                <div class="form-field" id="materialSelectField" style="display: none;">
+                    <label>Lựa chọn phiên bản / Chất liệu</label>
+                    <select id="orderMaterial" onchange="handleMaterialChange(this.value)"
+                        style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: Arial, sans-serif;">
+                    </select>
+                </div>
                 <div class="form-field">
                     <label>Địa chỉ nhận hàng *</label>
                     <input type="text" id="orderAddress" placeholder="Nhập địa chỉ cụ thể">
@@ -169,12 +178,12 @@
                     <input type="tel" id="orderPhone" placeholder="Nhập số điện thoại liên hệ">
                     <span class="error-msg" id="phoneError">* Vui lòng không để trống</span>
                 </div>
-                <div class="form-field" id="materialSelectField" style="display: none;">
-                    <label>Lựa chọn phiên bản / Chất liệu</label>
-                    <select id="orderMaterial" onchange="handleMaterialChange(this.value)"
-                        style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: Arial, sans-serif;">
-                    </select>
+                <div id="totalPriceContainer"
+                    style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 15px;">
+                    <span style="font-size: 14px; color: #555;">Tổng chi phí:</span>
+                    <span id="orderTotalPrice" style="font-size: 20px; color: #e75b52; font-weight: bold;">0đ</span>
                 </div>
+
                 <div class="modal-actions">
                     <button type="button" class="btn-cancel" onclick="closeOrderModal()">Hủy</button>
                     <button type="submit" class="btn-confirm">Đặt hàng</button>
@@ -197,26 +206,21 @@
 
     <footer>
         <div class="container footer-content">
-
             <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
-
             <div class="footer-info">
                 <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm,
                     Hanoi, Vietnam</p>
                 <p><strong>Liên hệ:</strong> 0972410248</p>
             </div>
-
             <div class="footer-socials">
                 <a href="#" class="social-circle" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-circle" title="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="#" class="social-circle" title="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="#" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-
             <div class="footer-copyright">
                 &copy; 2026 Bản quyền thuộc về nhóm 4.
             </div>
-
         </div>
     </footer>
 
@@ -226,7 +230,6 @@
                 name: "S-MLEM",
                 price: "299.000đ",
                 img: "/images/s-mlem.jpg",
-                highlightText: "Bản Đồ Mật Mã (02 Bảng ký hiệu):",
                 desc: `S-Mlem khai thác tối đa niềm đam mê ẩm thực của đại chúng. Nhờ việc bóc tách các món ăn quen thuộc, trò chơi giúp người chơi hiểu và trân trọng sự đa dạng, tinh tế của văn hóa ẩm thực ba miền Việt Nam.
                   - Thành phần:
                  1. Bản Đồ Mật Mã (02 Bảng ký hiệu): Bảng tra cứu giải nghĩa hệ thống icon ẩm thực  
@@ -249,8 +252,8 @@
                 name: "S-STAGE",
                 variants: [
                     { label: "Mặc định", price: "299.000đ", img: "/images/s-stage 2.jpg" },
-                    { label: "Chất liệu 1", price: "349.000đ", img: "/images/s-stage.jpg" },
-                    { label: "Chất liệu 2", price: "399.000đ", img: "/images/s-mlem.jpg" }
+                    { label: "Chất liệu 1", price: "349.000đ", img: "/images/s-stage 2.jpg" },
+                    { label: "Chất liệu 2", price: "399.000đ", img: "/images/s-stage 2.jpg" }
                 ],
                 desc: `S-Stage đưa người chơi bước vào thế giới của các nhân vật trong các trình diễn dân gian, mang đến những màn đấu trí mới mẻ, hấp dẫn xoay quanh các thanh âm, nhịp điệu và sân khấu di sản dân tộc.
           - Thành phần:
@@ -259,7 +262,6 @@
          3. Hồ Sơ Mật (02 Bộ thẻ vuông & 24 Thẻ kiến thức): Bộ thẻ cung cấp thông tin và các note thú vị về nhân vật.
          4. Mật Lệnh S-HUNT (01 Giấy hướng dẫn luật chơi)
          5. Sổ Nhật Ký Phá Án & Bút Định Vị (02 Bộ giấy note & bút)`
-
             }
         };
 
@@ -277,31 +279,40 @@
             if (productKey === 'stage') {
                 activeImages = product.variants.map(v => v.img);
 
+                // Kích hoạt hiển thị cho 2 thẻ ảnh phụ
                 document.getElementById('detailImg').src = product.variants[0].img;
                 document.getElementById('detailImg2').src = product.variants[1].img;
+                document.getElementById('detailImg2').style.display = 'block';
                 document.getElementById('detailImg3').src = product.variants[2].img;
+                document.getElementById('detailImg3').style.display = 'block';
 
-                // Hiển thị các bộ nút điều khiển của riêng sản phẩm Stage
+                // Bật bộ điều khiển chuyển slide
                 document.getElementById('carouselControls').style.display = 'block';
                 document.getElementById('carouselBadge').style.display = 'block';
 
                 updateStageState(0);
                 setupMaterialDropdown();
             } else {
-                activeImages = product.images;
-                document.getElementById('detailImg').src = activeImages[0];
+                // Đối với mlem và check: Ẩn hoàn toàn layout slider, chạy 1 ảnh gốc
+                activeImages = [product.img];
+                document.getElementById('detailImg').src = product.img;
+                document.getElementById('detailImg2').style.display = 'none';
+                document.getElementById('detailImg3').style.display = 'none';
+                document.getElementById('carouselControls').style.display = 'none';
+                document.getElementById('carouselBadge').style.display = 'none';
+
                 document.getElementById('detailName').innerText = product.name;
                 document.getElementById('detailPrice').innerText = product.price;
             }
         }
 
         function updateStageState(index) {
+            if (productKey !== 'stage') return;
             currentSlideIndex = index;
             const variant = product.variants[index];
 
             document.getElementById('detailName').innerText = `${product.name} - ${variant.label}`;
             document.getElementById('detailPrice').innerText = variant.price;
-
             document.getElementById('carouselBadge').innerText = `${index + 1}/${activeImages.length}`;
 
             const container = document.querySelector('.carousel-container');
@@ -328,12 +339,16 @@
                 selectEl.innerHTML = product.variants.map((v, idx) =>
                     `<option value="${idx}">${v.label} (${v.price})</option>`
                 ).join('');
+            } else {
+                selectField.style.display = 'none';
             }
         }
 
         function handleMaterialChange(value) {
             const idx = parseInt(value);
             updateStageState(idx);
+
+            updateOrderTotal();
         }
 
         function changeQuantity(amount) {
@@ -341,6 +356,8 @@
             let value = parseInt(input.value) + amount;
             if (value < 1) value = 1;
             input.value = value;
+
+            updateOrderTotal();
         }
 
         function openOrderModal() {
@@ -348,6 +365,8 @@
             if (productKey === 'stage') {
                 document.getElementById('orderMaterial').value = currentSlideIndex;
             }
+
+            updateOrderTotal();
         }
 
         function closeOrderModal() {
@@ -397,6 +416,22 @@
                 closeOrderModal();
                 openSuccessModal();
             }
+        }
+
+        function updateOrderTotal() {
+            const quantity = parseInt(document.getElementById('quantityInput').value) || 1;
+            let currentPriceText = "";
+
+            if (productKey === 'stage') {
+                currentPriceText = product.variants[currentSlideIndex].price;
+            } else {
+                currentPriceText = product.price;
+            }
+
+            const priceNumber = parseInt(currentPriceText.replace(/\./g, '').replace('đ', ''));
+            const total = priceNumber * quantity;
+
+            document.getElementById('orderTotalPrice').innerText = total.toLocaleString('vi-VN') + 'đ';
         }
     </script>
 </body>
