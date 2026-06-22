@@ -105,36 +105,25 @@
 
             <div class="detail-wrapper">
                 <div style="flex: 1.2; max-width: 500px; width: 100%;">
-                    <div
-                        style="position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 1/1; background-color: #f5f5f5; width: 100%;">
-
-                        <div class="carousel-container"
-                            style="display: flex; transition: transform 0.4s ease; width: 100%; height: 100%;">
-                            <img id="detailImg" src="" alt="Hình ảnh sản phẩm"
-                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
-                            <img id="detailImg2" src="" alt="Hình ảnh chất liệu 1"
-                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
-                            <img id="detailImg3" src="" alt="Hình ảnh chất liệu 2"
-                                style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
+                    <div style="position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 1/1; background-color: #f5f5f5; width: 100%;">
+                        
+                        <div class="carousel-container" style="display: flex; transition: transform 0.4s ease; width: 100%; height: 100%;">
+                            <img id="detailImg" src="" alt="Hình ảnh sản phẩm mặc định" style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0;">
+                            <img id="detailImg2" src="" alt="Hình ảnh chất liệu 1" style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
+                            <img id="detailImg3" src="" alt="Hình ảnh chất liệu 2" style="width: 100%; height: 100%; flex-shrink: 0; object-fit: cover; margin-bottom: 0; display: none;">
                         </div>
 
                         <div id="carouselControls" style="display: none;">
-                            <button type="button" onclick="moveSlide(-1)"
-                                style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i
-                                    class="fas fa-chevron-left"></i></button>
-                            <button type="button" onclick="moveSlide(1)"
-                                style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i
-                                    class="fas fa-chevron-right"></i></button>
+                            <button type="button" onclick="moveSlide(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" onclick="moveSlide(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;"><i class="fas fa-chevron-right"></i></button>
                         </div>
 
-                        <div id="carouselBadge"
-                            style="display: none; position: absolute; bottom: 15px; right: 15px; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 4px 10px; border-radius: 12px; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; z-index: 10;">
+                        <div id="carouselBadge" style="display: none; position: absolute; bottom: 15px; right: 15px; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 4px 10px; border-radius: 12px; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; z-index: 10;">
                             1/3
                         </div>
                     </div>
-
-                    <a id="lnkDetail" href="#" class="btn-detail" style="margin-top: 15px; width: 100%;">Thông tin chi
-                        tiết</a>
+                    
+                    <a id="lnkDetail" href="#" class="btn-detail" style="margin-top: 15px; width: 100%;">Thông tin chi tiết</a>
                 </div>
 
                 <div class="detail-info" style="flex: 1; width: 100%;">
@@ -164,8 +153,7 @@
             <form id="orderForm" onsubmit="handleOrderSubmit(event)">
                 <div class="form-field" id="materialSelectField" style="display: none;">
                     <label>Lựa chọn phiên bản / Chất liệu</label>
-                    <select id="orderMaterial" onchange="handleMaterialChange(this.value)"
-                        style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: Arial, sans-serif;">
+                    <select id="orderMaterial" onchange="handleMaterialChange(this.value)" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: Arial, sans-serif;">
                     </select>
                 </div>
                 <div class="form-field">
@@ -178,8 +166,7 @@
                     <input type="tel" id="orderPhone" placeholder="Nhập số điện thoại liên hệ">
                     <span class="error-msg" id="phoneError">* Vui lòng không để trống</span>
                 </div>
-                <div id="totalPriceContainer"
-                    style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 15px;">
+                <div id="totalPriceContainer" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 15px;">
                     <span style="font-size: 14px; color: #555;">Tổng chi phí:</span>
                     <span id="orderTotalPrice" style="font-size: 20px; color: #e75b52; font-weight: bold;">0đ</span>
                 </div>
@@ -198,8 +185,7 @@
                 <i class="fas fa-check"></i>
             </div>
             <h4>Đặt hàng thành công!</h4>
-            <p>Cảm ơn bạn đã lựa chọn sản phẩm của S-HUNT. Chúng tôi sẽ liên hệ lại với bạn để xác nhận đơn hàng trong
-                thời gian sớm nhất.</p>
+            <p>Cảm ơn bạn đã lựa chọn sản phẩm của S-HUNT. Chúng tôi sẽ liên hệ lại với bạn để xác nhận đơn hàng trong thời gian sớm nhất.</p>
             <button class="btn-success-close" onclick="closeSuccessModal()">Đóng</button>
         </div>
     </div>
@@ -208,8 +194,7 @@
         <div class="container footer-content">
             <h3 class="footer-title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
             <div class="footer-info">
-                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm,
-                    Hanoi, Vietnam</p>
+                <p><strong>Địa chỉ:</strong> Trường Khoa học Liên ngành và Nghệ thuật, ngõ 6 Trần Hữu Dực, Nam Từ Liêm, Hanoi, Vietnam</p>
                 <p><strong>Liên hệ:</strong> 0972410248</p>
             </div>
             <div class="footer-socials">
@@ -250,10 +235,11 @@
             },
             stage: {
                 name: "S-STAGE",
+                priceRange: "500.000đ - 1.000.000đ",
+                images: ["/images/s-stage 2.jpg", "/images/stage/detail_a_1.jpg", "/images/stage/detail_a_2.jpg"],
                 variants: [
-                    { label: "Mặc định", price: "299.000đ", img: "/images/s-stage 2.jpg" },
-                    { label: "Chất liệu 1", price: "349.000đ", img: "/images/s-stage 2.jpg" },
-                    { label: "Chất liệu 2", price: "399.000đ", img: "/images/s-stage 2.jpg" }
+                    { label: "Gỗ", price: "349.000đ" },
+                    { label: "Formex", price: "399.000đ" }
                 ],
                 desc: `S-Stage đưa người chơi bước vào thế giới của các nhân vật trong các trình diễn dân gian, mang đến những màn đấu trí mới mẻ, hấp dẫn xoay quanh các thanh âm, nhịp điệu và sân khấu di sản dân tộc.
           - Thành phần:
@@ -277,23 +263,19 @@
             document.getElementById('lnkDetail').href = `./thong-tin-chi-tiet.html?id=${productKey}`;
 
             if (productKey === 'stage') {
-                activeImages = product.variants.map(v => v.img);
+                activeImages = product.images;
 
-                // Kích hoạt hiển thị cho 2 thẻ ảnh phụ
-                document.getElementById('detailImg').src = product.variants[0].img;
-                document.getElementById('detailImg2').src = product.variants[1].img;
+                document.getElementById('detailImg').src = product.images[0];
+                document.getElementById('detailImg2').src = product.images[1];
                 document.getElementById('detailImg2').style.display = 'block';
-                document.getElementById('detailImg3').src = product.variants[2].img;
+                document.getElementById('detailImg3').src = product.images[2];
                 document.getElementById('detailImg3').style.display = 'block';
-
-                // Bật bộ điều khiển chuyển slide
                 document.getElementById('carouselControls').style.display = 'block';
                 document.getElementById('carouselBadge').style.display = 'block';
 
                 updateStageState(0);
                 setupMaterialDropdown();
             } else {
-                // Đối với mlem và check: Ẩn hoàn toàn layout slider, chạy 1 ảnh gốc
                 activeImages = [product.img];
                 document.getElementById('detailImg').src = product.img;
                 document.getElementById('detailImg2').style.display = 'none';
@@ -309,17 +291,28 @@
         function updateStageState(index) {
             if (productKey !== 'stage') return;
             currentSlideIndex = index;
-            const variant = product.variants[index];
 
-            document.getElementById('detailName').innerText = `${product.name} - ${variant.label}`;
-            document.getElementById('detailPrice').innerText = variant.price;
+            if (index === 0) {
+                document.getElementById('detailName').innerText = product.name;
+                document.getElementById('detailPrice').innerText = product.priceRange; 
+            } else if (index === 1) {
+                document.getElementById('detailName').innerText = `${product.name} - ${product.variants[0].label}`;
+                document.getElementById('detailPrice').innerText = product.variants[0].price;
+            } else if (index === 2) {
+                document.getElementById('detailName').innerText = `${product.name} - ${product.variants[1].label}`;
+                document.getElementById('detailPrice').innerText = product.variants[1].price;
+            }
+
             document.getElementById('carouselBadge').innerText = `${index + 1}/${activeImages.length}`;
 
             const container = document.querySelector('.carousel-container');
             container.style.transform = `translateX(-${index * 100}%)`;
 
             const materialSelect = document.getElementById('orderMaterial');
-            if (materialSelect) materialSelect.value = index;
+            if (materialSelect) {
+                if (index === 0 || index === 1) materialSelect.value = "0"; 
+                else if (index === 2) materialSelect.value = "1";
+            }
         }
 
         function moveSlide(direction) {
@@ -346,8 +339,7 @@
 
         function handleMaterialChange(value) {
             const idx = parseInt(value);
-            updateStageState(idx);
-
+            updateStageState(idx + 1);
             updateOrderTotal();
         }
 
@@ -363,9 +355,12 @@
         function openOrderModal() {
             document.getElementById('orderModal').style.display = 'flex';
             if (productKey === 'stage') {
-                document.getElementById('orderMaterial').value = currentSlideIndex;
+                if (currentSlideIndex === 0 || currentSlideIndex === 1) {
+                    document.getElementById('orderMaterial').value = "0";
+                } else if (currentSlideIndex === 2) {
+                    document.getElementById('orderMaterial').value = "1";
+                }
             }
-
             updateOrderTotal();
         }
 
@@ -423,7 +418,9 @@
             let currentPriceText = "";
 
             if (productKey === 'stage') {
-                currentPriceText = product.variants[currentSlideIndex].price;
+                const selectEl = document.getElementById('orderMaterial');
+                const selectedIdx = selectEl ? parseInt(selectEl.value) : 0;
+                currentPriceText = product.variants[selectedIdx].price;
             } else {
                 currentPriceText = product.price;
             }
